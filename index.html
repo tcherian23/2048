@@ -1,88 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>2048</title>
-
-  <link href="style/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
+  <title>2048 — After Hours</title>
+  <meta name="description" content="Small moves. Big energy. The classic 2048 puzzle, recharged for your next high score.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c1117">
+  <link href="style/after-hours.css" rel="stylesheet" type="text/css">
+  <link rel="icon" href="meta/after-hours.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">2048</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
-      </div>
-    </div>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="2048 After Hours home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>OFF THE CLOCK<span class="brand-subtitle">THE EVERYDAY ARCADE</span></span>
+      </a>
+      <span class="edition"><span class="status-dot"></span> NO. 001 <span class="edition-divider">/</span> 2048 REMIX</span>
+      <a class="how-to-link" href="#how-to-play">How to play <span aria-hidden="true">↗</span></a>
+    </header>
 
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
-    </div>
+    <main class="arcade">
+      <section class="game-info" aria-labelledby="game-title">
+        <p class="eyebrow"><span></span> A CLASSIC. A LITTLE LOUDER.</p>
+        <h1 id="game-title" class="title">2048<span class="title-star" aria-hidden="true">✳</span></h1>
+        <p class="game-tagline">Small moves.<br>Big energy.</p>
+        <p class="game-intro">One grid. Endless possibilities. Slide, combine,<br class="desktop-break"> and make your way to the mighty <strong>2048.</strong></p>
 
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
+        <div class="scores-container">
+          <div class="score-card">
+            <span class="score-label" id="score-label">YOUR SCORE</span>
+            <div class="score-container" aria-labelledby="score-label">0</div>
+          </div>
+          <div class="score-card best-card">
+            <span class="score-label" id="best-label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6 3h8v5a4 4 0 0 1-8 0V3ZM6 5H3v2a4 4 0 0 0 4 4m7-6h3v2a4 4 0 0 1-4 4m-3 1v4m-3 1h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> PERSONAL BEST</span>
+            <div class="best-container" aria-labelledby="best-label">0</div>
+          </div>
         </div>
-      </div>
 
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-      </div>
+        <button type="button" class="restart-button"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 7a6.5 6.5 0 1 1-.3 5M4 3v4h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> New game <span class="button-shortcut" aria-hidden="true">R</span></button>
+        <div class="mini-tip"><span class="tip-star" aria-hidden="true">✧</span><p>A little strategy. A little luck.<br>Just one more round.</p></div>
+      </section>
 
-      <div class="tile-container">
+      <section class="game-stage" aria-label="2048 game">
+        <div class="board-heading"><span><span class="status-dot"></span> THE PLAYING FIELD</span><span>4 × 4 <span class="board-cross" aria-hidden="true">＋</span></span></div>
+        <div class="board-frame">
+          <div class="game-container" role="group" aria-label="Game board. Use arrow keys or WASD to move tiles.">
+            <div class="game-message" role="status">
+              <span class="message-eyebrow">AFTER HOURS ARCADE</span>
+              <p></p>
+              <div class="lower">
+                <button type="button" class="keep-playing-button">Keep going <span aria-hidden="true">→</span></button>
+                <button type="button" class="retry-button">One more round <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+            <div class="grid-container" aria-hidden="true">
+              <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+              <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+              <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+              <div class="grid-row"><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div><div class="grid-cell"></div></div>
+            </div>
+            <div class="tile-container"></div>
+          </div>
+        </div>
+        <div class="board-caption"><span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M5 8h1m3 0h1m3 0h1M5 11h1m3 0h1m3 0h1m-8 2h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Arrow keys or WASD to move</span><span>Swipe works, too <span aria-hidden="true">↔</span></span></div>
+      </section>
 
-      </div>
-    </div>
+      <section class="how-to-play" id="how-to-play" aria-labelledby="how-to-title">
+        <div class="how-to-heading"><span class="section-number">01 / THE BASICS</span><h2 id="how-to-title">Easy to play.<br>Hard to put down.</h2></div>
+        <div class="instruction"><div class="instruction-visual arrow-keys" aria-hidden="true"><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd></div><h3>Make your move</h3><p>Use the arrow keys to slide<br>all tiles in one direction.</p></div>
+        <div class="instruction"><div class="instruction-visual merge-demo" aria-hidden="true"><span>2</span><b>+</b><span>2</span><b>=</b><span class="result-tile">4</span></div><h3>Better together</h3><p>Matching numbers merge.<br>Two of a kind, twice the power.</p></div>
+        <div class="instruction"><div class="instruction-visual goal-demo" aria-hidden="true"><span>2048</span><b>↗</b></div><h3>Chase the big one</h3><p>Keep combining to reach 2048.<br>Got there? Keep the good times rolling.</p></div>
+      </section>
+    </main>
 
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-    <hr>
-    <p>
-    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
-    </p>
-    <hr>
-    <p>
-    Created by <a href="http://gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a> Based on <a href="https://itunes.apple.com/us/app/1024!/id823499224" target="_blank">1024 by Veewo Studio</a> and conceptually similar to <a href="http://asherv.com/threes/" target="_blank">Threes by Asher Vollmer.</a>
-    </p>
+    <footer class="site-footer"><p>A fresh coat of paint on a classic by <a href="https://gabrielecirulli.com/">Gabriele Cirulli.</a></p><span>LESS SCROLLING. MORE PLAYING. <span aria-hidden="true">✳</span></span></footer>
   </div>
 
   <script src="js/bind_polyfill.js"></script>
